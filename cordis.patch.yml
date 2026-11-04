@@ -1,0 +1,17 @@
+# Enhanced grep, shadowing the shipped tool per agent.
+#
+# The shipped `grep` schema exposes only pattern/path/include, so any search
+# needing context lines, invert match, files-only, or several paths had to drop
+# to bash. This registers a same-named tool in each agent's scope, which shadows
+# the global one; the shipped tool keeps its own identity guard and stands down.
+
+- insert:
+    - id: search-plus
+      name: 'dsh-search-plus'
+      inject: ['tools', 'subprocess', 'workingDirectory']
+      config:
+        enabled: true
+        # Hard ceiling on returned lines, protecting the context window.
+        maxLines: 400
+        # Per-line preview budget in bytes.
+        maxLineBytes: 400

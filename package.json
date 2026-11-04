@@ -1,0 +1,40 @@
+{
+  "name": "dsh-search-plus",
+  "version": "0.1.0",
+  "private": true,
+  "description": "为 DSH 内置 grep 补齐上下文行/反向匹配/只列文件/多路径/类型过滤",
+  "type": "module",
+  "license": "MIT",
+  "author": "Lqg97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lqg97/dsh-search-plus.git"
+  },
+  "homepage": "https://github.com/Lqg97/dsh-search-plus#readme",
+  "bugs": {
+    "url": "https://github.com/Lqg97/dsh-search-plus/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node ./test/smoke.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
