@@ -25,15 +25,13 @@
  */
 
 import { existsSync, appendFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { fileURLToPath } from 'node:url'
 
 /** Bundled ripgrep shipped with the desktop app, preferred over PATH. */
 const BUNDLED_RG =
   '/Applications/DeepSeek Harness.app/Contents/Resources/app.asar.unpacked/dsh/node_modules/@vscode/ripgrep-darwin-arm64/bin/rg'
 
 /** Default caps, overridable through bundle config. */
-const DEFAULTS = { maxLines: 400, maxLineBytes: 400, bridgeObservation: true }
+const DEFAULTS = { maxLines: 400, maxLineBytes: 400 }
 
 /** Timeout must match the stock tool's cooperative budget. */
 const TIMEOUT_MS = 30000
